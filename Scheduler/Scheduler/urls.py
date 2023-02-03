@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from app_calendar import views as cal_views
+
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    # path('admin/', admin.site.urls),
+    path('', cal_views.index),
+    path('login/', cal_views.login),
+    path('calendar/', cal_views.cal_main)
 ]

@@ -1,0 +1,19 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CS180 Time Scheduler Login</title>
+</head>
+
+<body>
+    <h1>Welcome to the CS180 Time Scheduler!</h1>
+    <form method="post" action="/login/">
+        {% csrf_token %}
+        <input type="text" name="user" placeholder="Username">
+        <input type="password" name="password" placeholder="Password">
+        <input type="submit" value="Submit"> 
+    </form>
+</body>
+</html>
