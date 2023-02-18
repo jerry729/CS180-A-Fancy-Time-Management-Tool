@@ -18,6 +18,6 @@ class TaskInfo(models.Model):
     Task_owner = models.CharField(max_length=32)
     Task_name = models.CharField(max_length=32)
     Task_start_time = models.DateTimeField()
-    Task_start_time = models.DateTimeField()
+    Task_end_time = models.DateTimeField()
 
 
