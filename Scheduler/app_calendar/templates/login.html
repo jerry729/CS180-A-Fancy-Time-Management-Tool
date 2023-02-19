@@ -1,4 +1,10 @@
 {% load static %}
+{# Load the tag library #}
+{% load bootstrap5 %}
+
+{# Load CSS and JavaScript #}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,5 +21,18 @@
         <input type="password" name="password" placeholder="Password">
         <input type="submit" value="Submit"> 
     </form>
+    {# Display django.contrib.messages as Bootstrap alerts #}
+    {% bootstrap_messages %}
+
+    {# Display a form #}
+    <form method="post" class="form" action="/login/">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% buttons %}
+        <button type="submit" class="btn btn-primary">
+        Submit
+        </button>
+    {% endbuttons %}
+    </form>
 </body>
-</html>
+</html> 

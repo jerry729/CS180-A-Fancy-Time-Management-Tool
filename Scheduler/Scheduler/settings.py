@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'app_calendar.apps.AppCalendarConfig'
+    'app_calendar.apps.AppCalendarConfig',
+    'bootstrap5',
+    'webpack_loader',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +60,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         # 'DIRS': [os.path.join(BASE_DIR, 'templates')],
-        'DIRS': [],
+        'DIRS': [
+
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -90,11 +94,10 @@ DATABASES = {
         'NAME': 'CS180',
         'USER': 'cs180',
         'PASSWORD': 'cs180',
-        'HOST': 'localhost',
+        'HOST': '127.0.0.1',
         'PORT': 3306
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -136,3 +139,12 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+WEBPACK_LOADER = {
+  'DEFAULT': {
+    'CACHE': not DEBUG,
+    'STATS_FILE': str(BASE_DIR.joinpath('TimeScheduler', 'webpack-stats.json')),
+    'POLL_INTERVAL': 0.1,
+    'IGNORE': [r'.+\.hot-update.js', r'.+\.map'],
+  }
+}
