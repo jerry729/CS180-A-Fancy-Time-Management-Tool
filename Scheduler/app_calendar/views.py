@@ -1,11 +1,13 @@
 from django.shortcuts import render, HttpResponse, redirect
+from .myform import HelloForm
 
 # Create your views here.
 def index(request):
-    return redirect('http://localhost:8000/login')
+    return redirect('/login/')
 
 def login(request):
-    return render(request, 'login.html')
+    exform = HelloForm()
+    return render(request, 'login.html', {'form': exform})
 
 # html, current-app-dir/templates/ 
 # search order as settings.py: INSTALLED_APPS
