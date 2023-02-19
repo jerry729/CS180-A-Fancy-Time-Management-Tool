@@ -1,5 +1,6 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .myform import HelloForm
+import MySQLdb
 
 # Create your views here.
 def index(request):
