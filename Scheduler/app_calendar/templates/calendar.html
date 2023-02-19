@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    {% render_bundle 'main' 'css' %}
+    {% comment %} {% render_bundle 'main' 'css' %} {% endcomment %}
 </head>
 
 <body>
@@ -32,6 +32,6 @@
         </tread>
     </table>
 
-    {% render_bundle 'main' 'js' %}
+    {% comment %} {% render_bundle 'main' 'js' %} {% endcomment %}
 </body>
 </html>
