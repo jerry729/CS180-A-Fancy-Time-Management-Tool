@@ -1,21 +1,24 @@
 from django.shortcuts import render, HttpResponse, redirect
-from app_calendar.models import UserInfo, SchedulerInfo
+from .models import UserInfo, SchedulerInfo
 from .myform import HelloForm
 import MySQLdb
+
 
 # Create your views here.
 def index(request):
     return redirect('/login/')
 
+
 def login(request):
     exform = HelloForm()
     return render(request, 'login.html', {'form': exform})
 
-# html, current-app-dir/templates/ 
+
+# html, current-app-dir/templates/
 # search order as settings.py: INSTALLED_APPS
 def cal_main(request, null=None):
     # user_id = ''
-    data_list = SchedulerInfo.objects.all() # filter()
+    data_list = SchedulerInfo.objects.all()  # filter()
     if request.method == "GET":
         return render(request, 'calendar.html', {"data_list": data_list})
     Scheduler_name = request.POST.get("Scheduler name")
@@ -35,7 +38,6 @@ def cal_main(request, null=None):
             return HttpResponse("This Scheduler does not exist")
 
 
-
 # user template
 def user_template(request):
     UserInfo.objects.create(user_id='123', user_name='123', password='123')
@@ -49,4 +51,3 @@ def user_template(request):
     UserInfo.objects.filter(user_id=1).update()  # update data
 
     return HttpResponse("success")
-
