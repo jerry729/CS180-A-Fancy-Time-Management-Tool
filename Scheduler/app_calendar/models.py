@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -18,6 +19,7 @@ class TaskInfo(models.Model):
     Task_owner = models.CharField(max_length=32)
     Task_name = models.CharField(max_length=32)
     Task_start_time = models.DateTimeField()
-    Task_start_time = models.DateTimeField()
+    Task_end_time = models.DateTimeField()
 
 
+# UserInfo.objects.create(user_id="11", )

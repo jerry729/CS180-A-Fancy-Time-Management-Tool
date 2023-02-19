@@ -22,5 +22,6 @@ urlpatterns = [
     # path('admin/', admin.site.urls),
     path('', cal_views.index),
     path('login/', cal_views.login),
-    path('calendar/', cal_views.cal_main)
+    path('calendar/', cal_views.cal_main),
+    path('user/', cal_views.user_template)
 ]
