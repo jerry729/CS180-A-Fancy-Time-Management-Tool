@@ -11,8 +11,15 @@ def index(request):
 
 def login(request):
     exform = HelloForm()
-    return render(request, 'login.html', {'form': exform})
-
+    if request.method == "GET":
+        return render(request, 'login.html', {"form": exform})
+    Username = request.POST.get("Username")
+    Password = request.POST.get("Password")
+    Search_user = UserInfo.objects.filter(user_name=Username, password=Password)
+    if Search_user:
+        return HttpResponse("Login success")
+    else:
+        return HttpResponse("Login fail")
 
 # html, current-app-dir/templates/
 # search order as settings.py: INSTALLED_APPS

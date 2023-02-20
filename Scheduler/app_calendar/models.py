@@ -16,10 +16,12 @@ class SchedulerInfo(models.Model):
 
 
 class TaskInfo(models.Model):
-    Task_owner = models.CharField(max_length=32)
+    Task_owner_user = models.IntegerField()
+    Task_owner_scheduler = models.IntegerField()
     Task_name = models.CharField(max_length=32)
+    Task_description = models.CharField(max_length=64)
     Task_start_time = models.DateTimeField()
     Task_end_time = models.DateTimeField()
 
 
-# UserInfo.objects.create(user_id="11", )
+# class TeamInfo(models.Model):
