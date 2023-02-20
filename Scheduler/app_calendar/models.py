@@ -24,4 +24,4 @@ class TaskInfo(models.Model):
     Task_end_time = models.DateTimeField()
 
 
-# UserInfo.objects.create(user_id="11", )
+# class TeamInfo(models.Model):
