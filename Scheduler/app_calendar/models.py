@@ -1,11 +1,7 @@
 from django.db import models
 
 
-# Create your models here.
-
-
 class UserInfo(models.Model):
-    user_id = models.CharField(max_length=32)
     user_name = models.CharField(max_length=32)
     password = models.CharField(max_length=64)
 
@@ -24,4 +20,8 @@ class TaskInfo(models.Model):
     Task_end_time = models.DateTimeField()
 
 
-# class TeamInfo(models.Model):
+# Create your models here.
+class Books(models.Model):
+    name = models.CharField(max_length=30)
+    author = models.CharField(max_length=30, blank=True, null=True)
+
