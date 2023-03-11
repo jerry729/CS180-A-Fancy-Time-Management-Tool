@@ -14,7 +14,6 @@ from rest_framework import status
 from .models import Books
 from .serializer import BooksSerializer, UserSerializer
 
-
 @api_view(['GET', 'POST', 'PUT'])
 def user(request):
     if request.method == 'GET':
