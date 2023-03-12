@@ -1,18 +1,19 @@
 from abc import abstractmethod, ABCMeta
 
 from django.shortcuts import render, HttpResponse, redirect
-from .models import UserInfo, SchedulerInfo
+from .models import UserInfo, TaskInfo
 from .myform import HelloForm
 import MySQLdb
 
 from rest_framework import viewsets
 from rest_framework.decorators import api_view
+from rest_framework.views import APIView
 from django.http.response import JsonResponse
 from rest_framework.parsers import JSONParser
 from rest_framework import status
 
 from .models import Books
-from .serializer import BooksSerializer, UserSerializer
+from .serializer import BooksSerializer, UserSerializer, TaskSerializer
 
 @api_view(['GET', 'POST', 'PUT'])
 def user(request):
@@ -77,10 +78,31 @@ class BooksViewSet(viewsets.ModelViewSet):
     serializer_class = BooksSerializer
 
 
-class LoginViewSet(viewsets.ModelViewSet):
+class UserViewSet(viewsets.ModelViewSet):
     queryset = UserInfo.objects.all()
     serializer_class = UserSerializer
 
+
+class TaskViewSet(viewsets.ModelViewSet):
+    queryset = TaskInfo.objects.all()
+    serializer_class = TaskSerializer
+
+
+class UserLogin(APIView):
+    def get(self, request, *args, **kwargs):
+        user_name = request.GET.get("user_name")
+        password = request.GET.get('password')
+        users = UserInfo.objects.filter(user_name=user_name, password=password)
+        user_serializer = UserSerializer(users, many=True)
+        return JsonResponse(user_serializer.data, safe=False)
+
+
+class GetTasks(APIView):
+    def get(self, request, *args, **kwargs):
+        user_id = request.GET.get("user_id")
+        tasks = TaskInfo.objects.filter(Task_owner_user=user_id)
+        tasks_serializer = TaskSerializer(tasks, many=True)
+        return JsonResponse(tasks_serializer.data, safe=False)
 
 # html, current-app-dir/templates/
 # search order as settings.py: INSTALLED_APPS

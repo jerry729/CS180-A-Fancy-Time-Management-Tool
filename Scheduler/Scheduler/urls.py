@@ -20,8 +20,8 @@ from rest_framework.routers import DefaultRouter
 from app_calendar import views as cal_views
 from django.views.generic import TemplateView
 
-router = DefaultRouter()
-router.register('books', cal_views.BooksViewSet)
+# router = DefaultRouter()
+# router.register('books', cal_views.BooksViewSet)
 
 from rest_framework.schemas import get_schema_view
 from rest_framework_swagger.renderers import SwaggerUIRenderer, OpenAPIRenderer
@@ -45,7 +45,7 @@ schema_view = get_schema_view(
 urlpatterns = [
     # path('admin/', admin.site.urls),
     # path('', cal_views.index),
-    path('', include(router.urls)),
+    # path('', include(router.urls)),
     # path('login/', cal_views.login),
     path('calendar/', cal_views.cal_main),
     path('user/', cal_views.user),

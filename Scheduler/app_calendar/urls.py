@@ -5,9 +5,13 @@ from . import views
 
 
 router = DefaultRouter()
-router.register('books', views.BooksViewSet)
-router.register('Login', views.LoginViewSet)
+# router.register('books', views.BooksViewSet)
+router.register('users', views.UserViewSet)
+router.register('tasks', views.TaskViewSet)
+
 
 urlpatterns = [
     path('', include(router.urls)),
+    path('login/', views.UserLogin.as_view()),
+    path('gettasks/', views.GetTasks.as_view()),
 ]

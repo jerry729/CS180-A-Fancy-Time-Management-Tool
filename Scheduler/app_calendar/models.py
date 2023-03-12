@@ -12,12 +12,12 @@ class SchedulerInfo(models.Model):
 
 
 class TaskInfo(models.Model):
-    Task_owner_user = models.IntegerField()
-    Task_owner_scheduler = models.IntegerField()
-    Task_name = models.CharField(max_length=32)
-    Task_description = models.CharField(max_length=64)
-    Task_start_time = models.DateTimeField()
-    Task_end_time = models.DateTimeField()
+    Task_owner_user = models.IntegerField(null=True, blank=True)
+    Task_owner_scheduler = models.IntegerField(null=True, blank=True)
+    Task_name = models.CharField(default="", max_length=32, null=True, blank=True)
+    Task_description = models.CharField(default="", max_length=64, null=True, blank=True)
+    Task_start_time = models.DateTimeField(null=True, blank=True)
+    Task_end_time = models.DateTimeField(null=True, blank=True)
 
 
 # Create your models here.
