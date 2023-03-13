@@ -2,7 +2,7 @@
 <div class="make-team-container">
     <a-form :form="form" @submit="handleSubmit" layout="vertical">
     <a-form-item label="Team Name" :colon="false">
-        <a-input v-model="teamName" />
+        <a-input v-model="teamName"/>
     </a-form-item>
     <a-form-item label="Team Members" :colon="false">
         <div class="team-members">
@@ -10,7 +10,6 @@
             mode="tags"
             v-model="teamMembers"
             placeholder="Enter email addresses"
-            style="width: 100%"
         />
         <a-button class="add-member-button" type="primary" @click="addMember">Add Member</a-button>
         <div class="team-members-list">
@@ -86,7 +85,9 @@ background-color: white;
 
 .team-members {
 display: flex;
+width: 300px;
 flex-direction: row;
+align-items: center;
 }
 
 .team-members-list {
@@ -104,7 +105,7 @@ margin-bottom: 8px;
 }
 
 .add-member-button {
-margin-left: 8px;
+  margin-left: 16px;
 }
 
 
