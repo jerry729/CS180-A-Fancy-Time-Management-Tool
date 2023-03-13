@@ -65,13 +65,14 @@
   
   <style lang="less" scoped>
   .make-team-container {
-    max-width: 800px;
+    width: 100vw;
+    height: 100vh;
     margin: 0 auto;
     padding: 32px;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    
     background-color: white;
   }
   
