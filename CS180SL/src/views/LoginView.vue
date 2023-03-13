@@ -88,6 +88,7 @@ main {
   display: flex;
   width: 100vw;
   height: 100vh;
+  background-image: linear-gradient(to top, #a6c1ee 0%, #fbc2eb 100%);
 }
 
 .left-banner {
@@ -102,6 +103,7 @@ main {
   align-items: center;
   justify-content: center;
   text-align: start;
+  background-image: white;
 
   form {
     width: 400px;
