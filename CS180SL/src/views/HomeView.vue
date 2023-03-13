@@ -4,6 +4,7 @@ import {
   HomeOutlined,
   SettingOutlined,
   UserOutlined,
+  TeamOutlined,
 } from "@ant-design/icons-vue";
 import dayjs from "dayjs";
 import { message } from "ant-design-vue";
@@ -28,6 +29,7 @@ export default defineComponent({
     SettingOutlined,
     UserOutlined,
     ScheduleDetail,
+    TeamOutlined,
   },
   setup() {
     const current = ref<string[]>(["home"]);
@@ -164,6 +166,10 @@ export default defineComponent({
         <a-menu-item key="setting">
           <SettingOutlined />
           <span>Setting</span>
+        </a-menu-item>
+        <a-menu-item key="team" style="margin-top: 12px">
+          <TeamOutlined />
+          <span>Make team</span>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
