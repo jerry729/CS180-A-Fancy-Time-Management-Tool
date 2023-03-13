@@ -167,9 +167,9 @@ export default defineComponent({
           <SettingOutlined />
           <span>Setting</span>
         </a-menu-item>
-        <a-menu-item key="team" style="margin-top: 12px">
+        <a-menu-item key="team" @click="$router.push('/team')">
           <TeamOutlined />
-          <span>Make team</span>
+          <span>Make Team</span>
         </a-menu-item>
       </a-menu>
     </a-layout-sider>
