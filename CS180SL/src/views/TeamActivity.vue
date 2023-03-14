@@ -100,8 +100,11 @@ export default defineComponent({
 <style scoped>
 .activity-planning {
   padding: 24px;
-  background-color: #f0f2f5;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 
 h1,
@@ -133,5 +136,12 @@ ul {
 
 li {
   margin-bottom: 8px;
+}
+</style>
+
+<style>
+body {
+  background-color: white;
+  margin: 0;
 }
 </style>

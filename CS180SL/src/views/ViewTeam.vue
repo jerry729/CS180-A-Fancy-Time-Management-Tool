@@ -9,7 +9,7 @@
           <button class="remove-btn" @click="removeMember(member.id)">Remove</button>
         </li>
         <li v-if="team.length < 4 && !showAddMember" class="add-member">
-          <h3 class="name" color = "blue"><a @click="showAddMember = true">+ Add New Member</a></h3>
+          <h3 class="name" ><a @click="showAddMember = true">+ Add New Member</a></h3>
         </li>
         <li v-if="showAddMember" class="add-member-form">
           <h3 class="name">Add New Member</h3>
@@ -46,12 +46,7 @@ interface TeamMember {
 
 export default defineComponent({
   setup() {
-    const team = reactive<TeamMember[]>([
-      { id: 1, name: 'Xingyan', role: 'Backend' },
-      { id: 2, name: 'Zhaorui', role: 'Backend' },
-      { id: 3, name: 'Chenlong', role: 'Frontend' },
-      { id: 4, name: 'Nathanael', role: 'Frontend' },
-    ]);
+    const team = reactive<TeamMember[]>([]);
 
     const newMember = reactive<TeamMember>({
       id: 0,
@@ -259,5 +254,12 @@ button[type="submit"]:hover, button[type="button"]:hover {
 button[type="submit"]:focus, button[type="button"]:focus {
   outline: none;
   box-shadow: 0 0 0 2px #ccc;
+}
+</style>
+
+<style>
+body {
+  background-image: linear-gradient(to top, #a6c1ee 0%, #fbc2eb 100%);
+  margin: 0;
 }
 </style>
