@@ -1,35 +1,37 @@
 <template>
-  <div class ="page-container">
-    <div class="team-page">
-      <h1 class="title">My Team</h1>
-      <ul class="members">
-        <li v-for="member in team" :key="member.id" class="member">
-          <h3 class="name">{{ member.name }}</h3>
-          <p class="role">{{ member.role }}</p>
-          <button class="remove-btn" @click="removeMember(member.id)">Remove</button>
-        </li>
-        <li v-if="team.length < 4 && !showAddMember" class="add-member">
-          <h3 class="name" ><a @click="showAddMember = true">+ Add New Member</a></h3>
-        </li>
-        <li v-if="showAddMember" class="add-member-form">
-          <h3 class="name">Add New Member</h3>
-          <form @submit.prevent="addMember">
-            <div class="form-item">
-              <label for="name">Name:</label>
-              <input type="text" id="name" v-model="newMember.name" required>
-            </div>
-            <div class="form-item">
-              <label for="role">Role:</label>
-              <input type="text" id="role" v-model="newMember.role" required>
-            </div>
-            <div class="form-item">
-              <button type="submit">Add Member</button>
-              <button type="button" @click="cancelAddMember">Cancel</button>
-            </div>
-          </form>
-        </li>
-      </ul>
-      <router-link to="/" class="back-btn">&#8592; Back to Schedule</router-link>
+  <div class = "bg">
+    <div class ="page-container">
+      <div class="team-page">
+        <h1 class="title">My Team</h1>
+        <ul class="members">
+          <li v-for="member in team" :key="member.id" class="member">
+            <h3 class="name">{{ member.name }}</h3>
+            <p class="role">{{ member.role }}</p>
+            <button class="remove-btn" @click="removeMember(member.id)">Remove</button>
+          </li>
+          <li v-if="team.length < 4 && !showAddMember" class="add-member">
+            <h3 class="name" ><a @click="showAddMember = true">+ Add New Member</a></h3>
+          </li>
+          <li v-if="showAddMember" class="add-member-form">
+            <h3 class="name">Add New Member</h3>
+            <form @submit.prevent="addMember">
+              <div class="form-item">
+                <label for="name">Name:</label>
+                <input type="text" id="name" v-model="newMember.name" required>
+              </div>
+              <div class="form-item">
+                <label for="role">Role:</label>
+                <input type="text" id="role" v-model="newMember.role" required>
+              </div>
+              <div class="form-item">
+                <button type="submit">Add Member</button>
+                <button type="button" @click="cancelAddMember">Cancel</button>
+              </div>
+            </form>
+          </li>
+        </ul>
+        <router-link to="/" class="back-btn">&#8592; Back to Schedule</router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -88,6 +90,17 @@ export default defineComponent({
 });
 </script>
 <style scoped>
+.bg {
+width: 100vw;
+height: 100vh;
+margin: 0 auto;
+padding: 32px;
+display: flex;
+justify-content: center;
+align-items: center;
+
+background-image: linear-gradient(to top, #a6c1ee 0%, #fbc2eb 100%);
+}
 .view-team-container {
   width: 100%;
   height: 100%;
@@ -257,9 +270,13 @@ button[type="submit"]:focus, button[type="button"]:focus {
 }
 </style>
 
-<style>
-body {
-  background-image: linear-gradient(to top, #a6c1ee 0%, #fbc2eb 100%);
-  margin: 0;
-}
+<style scoped>
+  body {
+    background-color: #ffffff; /* Modify this line */
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    color: black;
+  }
 </style>
