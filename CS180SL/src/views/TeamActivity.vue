@@ -39,6 +39,7 @@
           <a-button type="primary" html-type="submit">Add Activity</a-button>
         </a-form-item>
       </a-form>
+      <router-link to="/" class="back-btn">&#8592; Back to Schedule</router-link>
     </div>
   </div>
 </template>
