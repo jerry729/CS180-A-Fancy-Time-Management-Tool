@@ -4,6 +4,7 @@ import LoginView from "@/views/LoginView.vue";
 import RegisterView from "@/views/RegisterView.vue";
 import MakeTeam from "@/views/MakeTeam.vue";
 import ViewTeam from "@/views/ViewTeam.vue";
+import TeamActivity from "@/views/TeamActivity.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -32,6 +33,11 @@ const router = createRouter({
       path:"/view-team",
       name: "ViewTeam",
       component: ViewTeam,
+    },
+    {
+      path:"/team-activity",
+      name: "TeamAcitivity",
+      component: TeamActivity,
     },
   ],
 });
