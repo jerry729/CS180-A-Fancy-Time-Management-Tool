@@ -1,31 +1,31 @@
 <template>
 <div class="make-team-container">
-    <a-form :form="form" @submit="handleSubmit" layout="vertical">
-    <a-form-item label="Team Name" :colon="false">
-        <a-input v-model="teamName"/>
-    </a-form-item>
-    <a-form-item label="Team Members" :colon="false">
-        <div class="team-members">
-        <a-select
-            mode="tags"
-            v-model="teamMembers"
-            placeholder="Enter email addresses"
-        />
-        <a-button class="add-member-button" type="primary" @click="addMember">Add Member</a-button>
-        <div class="team-members-list">
-            <ul>
-            <li v-for="member in teamMembers" :key="member">{{ member }}</li>
-            </ul>
-        </div>
-        </div>
-    </a-form-item>
-    <a-form-item>
-        <a-button type="primary" html-type="submit">Create Team</a-button>
-    </a-form-item>
-    <a-form-item>
-        <a-button class="back-button" @click="goBack">Back</a-button>
-      </a-form-item>
-    </a-form>
+        <a-form :form="form" @submit="handleSubmit" layout="vertical">
+        <a-form-item label="Team Name" :colon="false">
+            <a-input v-model="teamName"/>
+        </a-form-item>
+        <a-form-item label="Team Members" :colon="false">
+            <div class="team-members">
+            <a-select
+                mode="tags"
+                v-model="teamMembers"
+                placeholder="Enter email addresses"
+            />
+            <a-button class="add-member-button" type="primary" @click="addMember">Add Member</a-button>
+            <div class="team-members-list">
+                <ul>
+                <li v-for="member in teamMembers" :key="member">{{ member }}</li>
+                </ul>
+            </div>
+            </div>
+        </a-form-item>
+        <a-form-item>
+            <a-button type="primary" html-type="submit">Create Team</a-button>
+        </a-form-item>
+        <a-form-item>
+            <a-button class="back-button" @click="goBack">Back</a-button>
+            </a-form-item>
+        </a-form>
 </div>
 </template>
 
@@ -47,10 +47,10 @@ components: {
 },
 setup() {
     const form = reactive({});
-    const teamName = reactive("");
+    const teamName = reactive([]);
     const teamMembers = reactive([]);
     const addMember = () => {
-    teamMembers.push("");
+    teamMembers.push();
     };
     const handleSubmit = () => {
     console.log("Submitting form with data:", {
