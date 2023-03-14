@@ -175,6 +175,10 @@ export default defineComponent({
           <TeamOutlined />
           <span>View Team</span>
         </a-menu-item>
+        <a-menu-item key="team-activity" @click="$router.push('/team-activity')">
+          <TeamOutlined />
+          <span>Plan Team Activity</span>
+        </a-menu-item>
       </a-menu>
     </a-layout-sider>
     <a-layout>
