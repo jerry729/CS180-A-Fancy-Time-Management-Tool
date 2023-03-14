@@ -1,43 +1,45 @@
 <template>
-  <div class="activity-planning">
-    <h1>Team Activity Planning</h1>
-    <a-row :gutter="[16, 16]">
-      <a-col :span="12">
-        <a-card class="card">
-          <h2>Proposed Activities</h2>
+  <div class = "bg">
+    <div class="activity-planning">
+      <h1>Team Activity Planning</h1>
+      <a-row :gutter="[16, 16]">
+        <a-col :span="12">
+          <a-card class="card">
+            <h2>Proposed Activities</h2>
+            <ul>
+              <li v-for="activity in proposedActivities" :key="activity.id">
+                <a-checkbox v-model:checked="activity.selected">{{ activity.name }}</a-checkbox>
+              </li>
+            </ul>
+          </a-card>
+        </a-col>
+        <a-col :span="12">
+          <a-card class="card">
+          <h2>Selected Activities</h2>
           <ul>
-            <li v-for="activity in proposedActivities" :key="activity.id">
-              <a-checkbox v-model:checked="activity.selected">{{ activity.name }}</a-checkbox>
+            <li v-for="activity in selectedActivities" :key="activity.id">
+              {{ activity.name }}
+              <a-button size="small" type="danger" @click="removeActivity(activity.id)">Remove</a-button>
             </li>
           </ul>
         </a-card>
-      </a-col>
-      <a-col :span="12">
-        <a-card class="card">
-        <h2>Selected Activities</h2>
-        <ul>
-          <li v-for="activity in selectedActivities" :key="activity.id">
-            {{ activity.name }}
-            <a-button size="small" type="danger" @click="removeActivity(activity.id)">Remove</a-button>
-          </li>
-        </ul>
-      </a-card>
-      </a-col>
-    </a-row>
-    <a-divider />
-    <h2>Add Activity</h2>
-    <a-form :model="form" @finish="addActivity">
-      <a-form-item
-        label="Activity Name"
-        name="activityName"
-        rules="[{ required: true, message: 'Please enter an activity name' }]"
-      >
-        <a-input v-model:value="form.activityName" />
-      </a-form-item>
-      <a-form-item>
-        <a-button type="primary" html-type="submit">Add Activity</a-button>
-      </a-form-item>
-    </a-form>
+        </a-col>
+      </a-row>
+      <a-divider />
+      <h2>Add Activity</h2>
+      <a-form :model="form" @finish="addActivity">
+        <a-form-item
+          label="Activity Name"
+          name="activityName"
+          rules="[{ required: true, message: 'Please enter an activity name' }]"
+        >
+          <a-input v-model:value="form.activityName" />
+        </a-form-item>
+        <a-form-item>
+          <a-button type="primary" html-type="submit">Add Activity</a-button>
+        </a-form-item>
+      </a-form>
+    </div>
   </div>
 </template>
 
@@ -98,6 +100,17 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.bg {
+width: 100vw;
+height: 100vh;
+margin: 0 auto;
+padding: 32px;
+display: flex;
+justify-content: center;
+align-items: center;
+
+background-image: linear-gradient(to top, #a6c1ee 0%, #fbc2eb 100%);
+}
 .activity-planning {
   padding: 24px;
   height: 100vh;
@@ -136,12 +149,5 @@ ul {
 
 li {
   margin-bottom: 8px;
-}
-</style>
-
-<style>
-body {
-  background-color: white;
-  margin: 0;
 }
 </style>
