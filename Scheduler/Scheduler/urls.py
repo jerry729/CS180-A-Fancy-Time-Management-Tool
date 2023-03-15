@@ -48,8 +48,10 @@ urlpatterns = [
     # path('', include(router.urls)),
     # path('login/', cal_views.login),
     path('calendar/', cal_views.cal_main),
-    path('user/', cal_views.user),
+    path('user/', cal_views.user, name='user-list'),
+    path('user/login/', cal_views.UserLogin.as_view(), name='user-login'),
     path('api/', include('app_calendar.urls')),
+    path('tasks/', cal_views.GetTasks.as_view(), name='get-tasks'),
     path(r'docs/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
 
