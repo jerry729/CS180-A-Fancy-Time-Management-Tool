@@ -45,7 +45,7 @@ export default defineComponent({
         <a-form-item label="Change Password">
           <a-input v-model:value="form.password" type="password" />
         </a-form-item>
-        <a-button type="primary" htmlType="submit">修改</a-button>
+        <a-button type="primary" htmlType="submit">Submit</a-button>
       </a-form>
     </div>
   </main>
