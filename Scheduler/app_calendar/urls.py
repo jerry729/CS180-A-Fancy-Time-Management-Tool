@@ -8,6 +8,9 @@ router = DefaultRouter()
 # router.register('books', views.BooksViewSet)
 router.register('users', views.UserViewSet)
 router.register('tasks', views.TaskViewSet)
+router.register('team', views.TeamViewSet)
+router.register('team_member', views.TeamMemberViewSet)
+router.register('team_activity', views.TeamActivityViewSet)
 
 
 urlpatterns = [
