@@ -5,33 +5,51 @@
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-Enviroment Set up
+# Enviroment Set up
 
 #Backend: 
 $ python3 -m venv /path/to/new/virtual/environment/CS180
+
 $ source /path/to/venv/bin/activate
+
 Or
+
 $ conda create -n CS180 python=3
+
 $ conda activate CS180
 
 Then,
+
 $ pip install django	
+
 $ pip install mysqlclient	or	$ conda install mysqlclient
+
 $ pip install django-bootstrap-v5 
 
 # DataBase Set up
+
 Install MySQL
+
 $ mysql -u root -p
+
 $ CREATE USER 'cs180'@'localhost' IDENTIFIED WITH mysql_native_password BY 'cs180';
+
 $ create database CS180;
+
 $ GRANT ALL ON CS180.* TO 'cs180'@'localhost';
 
+
 In the virtual environment,
+
 $ python manage.py makemigrations
+
 $ python manage.py migrate
 
+
 $ pip install pip install django_rest_framework
+
 $ pip install django-cors-headers
+
 $ pip install drf-yasg
 
 
