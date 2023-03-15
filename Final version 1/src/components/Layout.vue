@@ -11,6 +11,18 @@
           <calendar-outlined />
           <span>Calendar</span>
         </a-menu-item>
+        <a-menu-item key="/team">
+          <calendar-outlined />
+          <span>MakeTeam</span>
+        </a-menu-item>
+        <a-menu-item key="/view-team">
+          <calendar-outlined />
+          <span>ViewTeam</span>
+        </a-menu-item>
+        <a-menu-item key="/team-activity">
+          <calendar-outlined />
+          <span>TeamActivity</span>
+        </a-menu-item>
         <a-menu-item key="/settings">
           <setting-outlined />
           <span>Settings</span>

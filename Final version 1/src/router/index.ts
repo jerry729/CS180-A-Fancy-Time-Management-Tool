@@ -5,6 +5,9 @@ import CalendarView from "@/views/CalendarView.vue";
 import SettingsView from "@/views/SettingsView.vue";
 import LoginView from "@/views/LoginView.vue";
 import RegisterView from "@/views/RegisterView.vue";
+import MakeTeam from "@/views/MakeTeam.vue";
+import ViewTeam from "@/views/ViewTeam.vue";
+import TeamActivity from "@/views/TeamActivity.vue";
 import { useUserStore } from "@/stores/user";
 
 const router = createRouter({
@@ -35,6 +38,30 @@ const router = createRouter({
           path: "/settings",
           name: "settings",
           component: SettingsView,
+          meta: {
+            requiresAuth: true,
+          },
+        },
+        {
+          path:"/team",
+          name: "MakeTeam",
+          component: MakeTeam,
+          meta: {
+            requiresAuth: true,
+          },
+        },
+        {
+          path: "/view-team",
+          name: "ViewTeam",
+          component: ViewTeam,
+          meta: {
+            requiresAuth: true,
+          },
+        },
+        {
+          path: "/team-activity",
+          name: "TeamAcitivity",
+          component: TeamActivity,
           meta: {
             requiresAuth: true,
           },
