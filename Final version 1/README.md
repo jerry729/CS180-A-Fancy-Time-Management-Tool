@@ -5,22 +5,37 @@
 
 [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support for `.vue` Imports in TS
+Enviroment Set up
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+#Backend: 
+$ python3 -m venv /path/to/new/virtual/environment/CS180
+$ source /path/to/venv/bin/activate
+Or
+$ conda create -n CS180 python=3
+$ conda activate CS180
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+Then,
+$ pip install django	
+$ pip install mysqlclient	or	$ conda install mysqlclient
+$ pip install django-bootstrap-v5 
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+# DataBase Set up
+Install MySQL
+$ mysql -u root -p
+$ CREATE USER 'cs180'@'localhost' IDENTIFIED WITH mysql_native_password BY 'cs180';
+$ create database CS180;
+$ GRANT ALL ON CS180.* TO 'cs180'@'localhost';
 
-## Customize configuration
+In the virtual environment,
+$ python manage.py makemigrations
+$ python manage.py migrate
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+$ pip install pip install django_rest_framework
+$ pip install django-cors-headers
+$ pip install drf-yasg
 
-## Project Setup
+
+## Front Setup
 
 ```sh
 npm install
@@ -38,8 +53,3 @@ npm run dev
 npm run build
 ```
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
