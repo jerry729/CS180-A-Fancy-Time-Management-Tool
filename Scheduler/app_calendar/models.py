@@ -20,6 +20,23 @@ class TaskInfo(models.Model):
     Task_end_time = models.DateTimeField(null=True, blank=True)
 
 
+class TeamInfo(models.Model):
+    Team_name = models.CharField(default="", max_length=64, null=True, blank=True)
+    Team_description = models.CharField(default="", max_length=64, null=True, blank=True)
+
+
+class TeamMember(models.Model):
+    User_Id = models.IntegerField(null=True, blank=True)
+    User_name = models.CharField(default="", max_length=32, null=True, blank=True)
+    User_Role = models.CharField(default="", max_length=64, null=True, blank=True)
+
+
+class TeamActivity(models.Model):
+    User_name = models.CharField(default="", max_length=32, null=True, blank=True)
+    Team_name = models.CharField(default="", max_length=32, null=True, blank=True)
+    Activity_name = models.CharField(default="", max_length=64, null=True, blank=True)
+
+
 # Create your models here.
 class Books(models.Model):
     name = models.CharField(max_length=30)

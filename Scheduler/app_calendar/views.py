@@ -1,7 +1,7 @@
 from abc import abstractmethod, ABCMeta
 
 from django.shortcuts import render, HttpResponse, redirect
-from .models import UserInfo, TaskInfo
+from .models import UserInfo, TaskInfo, TeamInfo, TeamMember, TeamActivity
 from .myform import HelloForm
 import MySQLdb
 
@@ -13,7 +13,7 @@ from rest_framework.parsers import JSONParser
 from rest_framework import status
 
 from .models import Books
-from .serializer import BooksSerializer, UserSerializer, TaskSerializer
+from .serializer import BooksSerializer, UserSerializer, TaskSerializer, TeamSerializer, TeamMemberSerializer, TeamActivitySerializer
 
 @api_view(['GET', 'POST', 'PUT'])
 def user(request):
@@ -86,6 +86,21 @@ class UserViewSet(viewsets.ModelViewSet):
 class TaskViewSet(viewsets.ModelViewSet):
     queryset = TaskInfo.objects.all()
     serializer_class = TaskSerializer
+
+
+class TeamViewSet(viewsets.ModelViewSet):
+    queryset = TeamInfo.objects.all()
+    serializer_class = TeamSerializer
+
+
+class TeamMemberViewSet(viewsets.ModelViewSet):
+    queryset = TeamMember.objects.all()
+    serializer_class = TeamMemberSerializer
+
+
+class TeamActivityViewSet(viewsets.ModelViewSet):
+    queryset = TeamActivity.objects.all()
+    serializer_class = TeamActivitySerializer
 
 
 class UserLogin(APIView):
